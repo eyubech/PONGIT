@@ -5,7 +5,7 @@ from rest_framework_simplejwt.tokens import AccessToken
 import json
 import redis
 
-redis_client = redis.Redis(host='10.11.5.3', port=6379, db=0)
+redis_client = redis.Redis(host='10.11.4.4', port=6379, db=0)
 
 class UserConsumer(AsyncJsonWebsocketConsumer):
     async def connect(self):

@@ -28,7 +28,7 @@ function startCanva( data ) {
     function startGame() {
         let manager;
         const room_name = "1#2";
-        const url = `ws://10.11.5.3:8080/ws/game/${encodeURIComponent(room_name)}/`;
+        const url = `ws://10.11.4.4:8080/ws/game/${encodeURIComponent(room_name)}/`;
         game = new WebSocket(url);
         game.onopen = function() {
             console.log("connection is open")

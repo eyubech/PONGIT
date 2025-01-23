@@ -85,7 +85,7 @@
 		
 		// Create a new WebSocket connection
 		const token = localStorage.getItem('accessToken');
-		const socketUrl = `wss://10.11.5.3:443/ws/chat/${recipient}/?token=${token}`;
+		const socketUrl = `wss://10.11.4.4:443/ws/chat/${recipient}/?token=${token}`;
 	
 		window.Chatsocket = new WebSocket(socketUrl);
 
@@ -220,7 +220,7 @@ async function fetchChatHistory(senderUsername, recipientUsername)
 
 	const messageDate = document.createElement('span');
 	messageDate.classList.add('date');
-	messageDate.textContent = new Date().toLocalTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+	messageDate.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
 
 	content2.appendChild(messageContent);
 	content2.appendChild(document.createElement('br'));

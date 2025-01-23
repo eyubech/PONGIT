@@ -30,7 +30,7 @@ class Sign extends HTMLElement {
 		this.appendChild(style);
 		// this.appendChild(script);
 		// let token    =   localStorage.getItem("accessToken");
-    	// let URL      =   `wss://10.11.5.3:443/ws/notification/?token=${token}`
+    	// let URL      =   `wss://10.11.4.4:443/ws/notification/?token=${token}`
 		// closeWebsocket( URL )
 		// Execute the JavaScript logic for the chat, passing `this` as the component
 		const scriptFunction = new Function('component', jsContent);

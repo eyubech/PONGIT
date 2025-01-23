@@ -77,7 +77,7 @@ class AddFriend extends HTMLElement {
 					console.log(data.message);
 					window.loadComponentNotify('notification', appContainer, {message: `Friend request sent to: ${fusername}`, type: "info"});
 					console.log(" test send request ")
-					let URL      =   `wss://10.11.5.3:443/ws/notification/?token=${tokenNotify.notifyToken}`
+					let URL      =   `wss://10.11.4.4:443/ws/notification/?token=${tokenNotify.notifyToken}`
 					let socketNotify = getWebsocket( URL )
 					let messageNotify = {
 						"type"		: 	"friend",

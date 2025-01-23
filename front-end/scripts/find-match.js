@@ -2,7 +2,7 @@ import { getWebsocket, closeWebsocket }  from "../components/matchMaking.js";
 
 (function initializeChatComponent(component) {
 	const token = localStorage.getItem('accessToken');
-	const socketUrl = `wss://10.11.5.3:443/ws/matchmaking/random/?token=${token}`;
+	const socketUrl = `wss://10.11.4.4:443/ws/matchmaking/random/?token=${token}`;
 	const socket = getWebsocket(socketUrl)
 
 	const dots = document.querySelector('.dots');

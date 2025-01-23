@@ -268,7 +268,7 @@ class GamePlayLocale extends HTMLElement {
         // console.log("test game local")
         document.removeEventListener( "keydown", this.handleKeyDown );
         // console.log(window.location.href)
-        if ( window.location.href === "https://10.11.5.3/game" ) {
+        if ( window.location.href === "https://10.11.4.4/game" ) {
             window.loadComponent2('game', document.querySelector('.container'));
         }
     }

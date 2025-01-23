@@ -27,7 +27,7 @@
         document.getElementById("sender").textContent = senderName;
 
         // WebSocket connection
-        const ws = new WebSocket(`ws://10.11.5.3:8000/ws/chat/${roomName}/`);
+        const ws = new WebSocket(`ws://10.11.4.4:8000/ws/chat/${roomName}/`);
 
         ws.onopen = function() {
             console.log("WebSocket connected.");

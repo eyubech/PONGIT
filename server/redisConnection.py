@@ -4,21 +4,21 @@ from django.conf import settings
 
 # Connect to Redis database 0 (single Redis database)
 redisPong = redis.StrictRedis(
-    host='10.11.5.3',
+    host='10.11.4.4',
     port='6379',
     db=0,
     decode_responses=True
 )
 
 redisTournament = redis.StrictRedis( 
-    host='10.11.5.3',
+    host='10.11.4.4',
     port='6379',
     db=0,
     decode_responses=True
 )
 
 redisLog = redis.StrictRedis( 
-    host='10.11.5.3',
+    host='10.11.4.4',
     port='6379',
     db=0,
     decode_responses=True

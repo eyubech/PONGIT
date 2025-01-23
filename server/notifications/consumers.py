@@ -35,6 +35,7 @@ class NotificationConsumer( AsyncWebsocketConsumer ):
             )
         except Exception as e :
             print( f"error {e}")
+            self.self.room_group_name = None
             await self.close( code=3600 )
     async def notify( self , event ):
         # print(type(event))
@@ -154,12 +155,14 @@ class NotificationConsumer( AsyncWebsocketConsumer ):
     
 
     async def disconnect( self, close_code ):
-        if close_code != 3600 :
+        if close_code != 3600 and self.self.room_group_name != None:
             await self.channel_layer.group_discard( self.room_group_name, self.channel_name )
             print("discrad user")
             if await sync_to_async( redisPong.exists )( "connect" ) == 1:
                 await sync_to_async( redisPong.hdel )( "connect", self.id )
                 print("remove feild")
+        else:
+            print("test Notification")
 
 
 

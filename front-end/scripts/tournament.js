@@ -57,7 +57,7 @@ function buildPlayer(nickname, currentUser) {
   async function initializeWebSocket(data) {
     try {
       const token = localStorage.getItem('accessToken');
-      const socketUrl = `wss://10.11.5.3:443/ws/tournament/lobby/${data.id}/`;
+      const socketUrl = `wss://10.11.4.4:443/ws/tournament/lobby/${data.id}/`;
 
       // Store the webSocketService instance
       webSocketService.connect(socketUrl, token);

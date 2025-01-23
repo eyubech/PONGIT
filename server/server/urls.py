@@ -83,7 +83,7 @@ urlpatterns = [
 
 
     # Chat
-    path('chat', include('chat.urls')),
+    path('chat/', include('chat.urls')),
     # email verification
     path('email-verification/<str:token>/', views.verify_email, name='verify_email'),
     path('playerHistory/',include("game.urls"), name="history")

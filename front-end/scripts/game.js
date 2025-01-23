@@ -189,7 +189,7 @@ function initializeGameComponent(component) {
 	// 	// Initialize WebSocket connection
 	// 	const token = localStorage.getItem('accessToken');
 	// 	console.log( "token" , token )
-	// 	const socketUrl = `wss://10.11.5.3:443/ws/matchmaking/${room_name}/?token=${token}`;
+	// 	const socketUrl = `wss://10.11.4.4:443/ws/matchmaking/${room_name}/?token=${token}`;
 	// 	// window.macking = new WebSocket(socketUrl);
 	// 	let makingMatch = new WebSocket(socketUrl);
 		// console.log(makingMatch.isCreated())
@@ -309,7 +309,7 @@ ball.style.position = "absolute";
 function matchMacking() {
 	const room_name = "random";
 	const token = localStorage.getItem('accessToken');
-	const socketUrl = `wss://10.11.5.3:443/ws/matchmaking/random/?token=${token}`;
+	const socketUrl = `wss://10.11.4.4:443/ws/matchmaking/random/?token=${token}`;
 	// console.log(`here open socket ${socketUrl}`)
 	const socket = getWebsocket(socketUrl)
 	socket.onopen = function() {
@@ -338,7 +338,7 @@ function matchMacking() {
 	socket.addEventListener("close", ( event ) => {
 		// console.log("1test close web socket2")
 		const token = localStorage.getItem('accessToken');
-		const socketUrl = `wss://10.11.5.3:443/ws/matchmaking/random/?token=${token}`;
+		const socketUrl = `wss://10.11.4.4:443/ws/matchmaking/random/?token=${token}`;
 		closeWebsocket(socketUrl);
 	})
 }
@@ -380,7 +380,7 @@ function matchMacking() {
 	// socket.addEventListener("close", ( event ) => {
 	// 	console.log("1test close web socket2")
 	// 	const token = localStorage.getItem('accessToken');
-	// 	const socketUrl = `wss://10.11.5.3:443/ws/matchmaking/random/?token=${token}`;
+	// 	const socketUrl = `wss://10.11.4.4:443/ws/matchmaking/random/?token=${token}`;
 	// 	closeWebsocket(socketUrl);
 	// })
 // }
@@ -448,7 +448,7 @@ function addGame() {
 		versusComponent.remove()
 	window.loadComponent2('game-component-play', appContainer);
 	const token = localStorage.getItem('accessToken');
-	const socketUrl = `wss://10.11.5.3:443/ws/matchmaking/random/?token=${token}`;
+	const socketUrl = `wss://10.11.4.4:443/ws/matchmaking/random/?token=${token}`;
 	closeWebsocket(socketUrl)
 }
 

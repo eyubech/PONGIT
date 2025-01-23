@@ -50,7 +50,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             
             recipient = await self.get_user_by_username(recipient_username)
             
-            user_names = sorted([self.scope["user"].username, recipient.username])
+            user_names = sorted([self.user.username, recipient.username])
             self.room_name = f"{user_names[0]}_{user_names[1]}"
             return True
         except User.DoesNotExist:
@@ -58,36 +58,37 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
     async def connect(self):
         
-        # query_string = self.scope['query_string'].decode()  # Decode the query string
-        # query_params = parse_qs(query_string)  # Parse query string
-        # token = query_params.get('token', [None])[0]  # Get token value (None if not present)
-        # # print(token)
-        # if token:
-        #     try:
-        #         # Verify token
-        #         access_token = AccessToken(token)
-        #         user_id = access_token['user_id']  # Extract user_id from token
-        #         user = await sync_to_async(User.objects.get)(id=user_id)  # Retrieve user from DB
-        #         self.user = user
-                user = self.scope.get('user')
+        query_string = self.scope['query_string'].decode()  # Decode the query string
+        query_params = parse_qs(query_string)  # Parse query string
+        token = query_params.get('token', [None])[0]  # Get token value (None if not present)
+        # print(token)
+        if token:
+            try:
+                # Verify token
+                access_token = AccessToken(token)
+                user_id = access_token['user_id']  # Extract user_id from token
+                user = await sync_to_async(User.objects.get)(id=user_id)  # Retrieve user from DB
+                self.user = user
+                # user = self.scope.get('user')
                 if not await self.setup_room_name():
                     await self.send(text_data=json.dumps({"error": "Recipient does not exist"}))  # Use send instead of send_json
                     await self.close(4002)
                     return
                 # print (f"User: {user} id : {user_id}")
                 
-                if user.is_anonymous:  # Close the connection if the user is not authenticated
+                if self.user.is_anonymous:  # Close the connection if the user is not authenticated
                     await self.send(text_data=json.dumps({"error": "User not authenticated"}))  # Use send instead of send_json
                     await self.close(4001)
                     return
 
                 # self.room_name = self.scope['room_name']
+                # print("room name is" , self.room_name)
                 self.room_group_name = f"chat_{self.room_name}"
 
                 # Retrieve or create the room in the database
                 self.room = await self.get_or_create_room(self.room_name)
 
-                self.sender_name = self.scope["user"].username
+                self.sender_name = self.user.username
                 self.recipient_name = self.scope["url_route"]["kwargs"]["recipient"]
                 self.sender = await self.get_user_by_username(self.sender_name)
                 self.recipient = await self.get_user_by_username(self.recipient_name)
@@ -96,11 +97,12 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 await self.channel_layer.group_add(self.room_group_name, self.channel_name)
                 await self.accept()
                   
-            # except Exception as e:
-            #     print(f"Error in WebSocket connect2: {e}")
+            except Exception as e:
+                print(f"Error in WebSocket connect2: {e}")
 
     async def disconnect(self, close_code):
-        await self.channel_layer.group_discard(self.room_group_name, self.channel_name)
+        pass
+        # await self.channel_layer.group_discard(self.room_group_name, self.channel_name)
 
     async def receive(self, text_data):
         # Filter bad words
@@ -119,7 +121,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             self.room_group_name,
             {
                 'type': 'chat.message',
-                'user': self.scope["user"].username,
+                'user': self.user.username,
                 'message': message_content  # Use the message content
             }
         )

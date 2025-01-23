@@ -143,7 +143,7 @@ export async function initializeSidebarComponent(component)
     if ( tokenNotify.notifyToken == null ) console.log(" token is not fond ")
     tokenNotify.notifyToken    =   localStorage.getItem("accessToken");
     console.log( tokenNotify.notifyToken )
-    let URL      =   `wss://10.11.5.3:443/ws/notification/?token=${tokenNotify.notifyToken}`
+    let URL      =   `wss://10.11.4.4:443/ws/notification/?token=${tokenNotify.notifyToken}`
     const socket =    getWebsocket(URL)
     socket.addEventListener("message" , ( event )=> {
         	const messageData = JSON.parse(event.data);

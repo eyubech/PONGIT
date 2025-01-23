@@ -97,7 +97,7 @@ export async function initializeTournamentRounds(component) {
 
     async function initializeWebSocket(url) {
         const token = localStorage.getItem('accessToken');
-        const socketUrl = `wss://10.11.5.3:443/ws${url}`;
+        const socketUrl = `wss://10.11.4.4:443/ws${url}`;
         console.log("Connecting to WebSocket:", socketUrl);
 		webSocketService.connect(socketUrl, token);
         webSocketService.setCallbacks(socketCallbacks);

@@ -132,7 +132,7 @@ window.loadComponent3 = function(container, componentName, user) {
 		case 'chat':
 			containerName = ".chat-container";
 			// if (!existingComponent)
-			// newComponent = document.createElement('chat-component');
+			newComponent = document.createElement('chat-component');
 			// else
 			// {
 			// 	newComponent = document.getElementsByTagName('chat-component')[0];

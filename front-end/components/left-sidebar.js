@@ -608,7 +608,7 @@ class LeftSideBar extends HTMLElement {
 					right_sidebar_bar.addEventListener("content-loaded", () => {
 						let btnSendInviteGame = right_sidebar_bar.querySelector(".drop-down .select-box .actions i")
 						btnSendInviteGame.addEventListener("click", ( ) => {
-							let URL      =   `wss://10.11.5.3:443/ws/notification/?token=${tokenNotify.notifyToken}`
+							let URL      =   `wss://10.11.4.4:443/ws/notification/?token=${tokenNotify.notifyToken}`
 							let socketNotify = getWebsocket( URL )
 							let liRightSide = right_sidebar_bar.querySelector(".drop-down li")
 							console.log(liRightSide.dataset.username)
@@ -731,7 +731,7 @@ class LeftSideBar extends HTMLElement {
 			// 	icon: "fa-check-circle",
 			// 	duration: 3000
 			// });
-			let URL      =   `wss://10.11.5.3:443/ws/notification/?token=${tokenNotify.notifyToken}`
+			let URL      =   `wss://10.11.4.4:443/ws/notification/?token=${tokenNotify.notifyToken}`
 			let socketNotify  = getWebsocket( URL )
 			let messageNotify = {
 				"type"		: 	"friend",

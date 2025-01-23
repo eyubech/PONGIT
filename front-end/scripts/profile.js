@@ -399,7 +399,7 @@
                 // }
                 // console.log(window.testsocket)
                 // Initialize WebSocket connection
-                // const wsUrl = `wss://10.11.5.3:443/ws/user/?token=${token}`;
+                // const wsUrl = `wss://10.11.4.4:443/ws/user/?token=${token}`;
                 // const socket = new WebSocket(wsUrl);
 
                 // socket.onopen = () => {

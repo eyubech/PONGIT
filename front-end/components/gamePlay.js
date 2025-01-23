@@ -7,7 +7,7 @@ class GamePlay extends HTMLElement {
         const token     =   localStorage.getItem('accessToken');
         const type      =   dataPlayer.type
         // console.log( "type of game is " , type)
-	    const socketUrl =   `wss://10.11.5.3:443/ws/game/${dataPlayer.session_name}/?token=${token}&type=${type}&id=${dataPlayer.id}`;
+	    const socketUrl =   `wss://10.11.4.4:443/ws/game/${dataPlayer.session_name}/?token=${token}&type=${type}&id=${dataPlayer.id}`;
         this.socket     =   getWebsocket(socketUrl)
         this.manager    =   null;
         this.requestFrame   =   null;
@@ -161,7 +161,7 @@ class GamePlay extends HTMLElement {
                         const token     =   localStorage.getItem('accessToken');
                         const type      =   dataPlayer.type
                         // console.log( "type of game is " , type)
-	                    const socketUrl =   `wss://10.11.5.3:443/ws/game/${dataPlayer.session_name}/?token=${token}&type=${type}&id=${dataPlayer.id}`;
+	                    const socketUrl =   `wss://10.11.4.4:443/ws/game/${dataPlayer.session_name}/?token=${token}&type=${type}&id=${dataPlayer.id}`;
                         // this.socket.close(3880)
                         if (this.socket !== null ) {
                             // console.log()
@@ -284,7 +284,7 @@ class GamePlay extends HTMLElement {
                 // this.socket.close(3220)
             }
         }
-        if ( window.location.href === "https://10.11.5.3/game" ) 
+        if ( window.location.href === "https://10.11.4.4/game" ) 
         {
             console.log("from com game play" , window.location.href, document.querySelector("game-component"))
             if ( document.querySelector("game-component") == null ) {

@@ -7,7 +7,7 @@ class FindMatch extends HTMLElement {
 	}
 	async connectedCallback() {
 		const token = localStorage.getItem('accessToken');
-		const socketUrl = `wss://10.11.5.3:443/ws/matchmaking/random/?token=${token}`;
+		const socketUrl = `wss://10.11.4.4:443/ws/matchmaking/random/?token=${token}`;
 		this.socket = getWebsocket(socketUrl)
 		// Fetch HTML
 		console.log("findMatch Connected")

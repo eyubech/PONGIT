@@ -13,7 +13,7 @@ class FallbackRequestHandler(SimpleHTTPRequestHandler):
 
 # Start the server
 port = 8000
-server_address = ('10.11.5.3', port)
+server_address = ('10.11.4.4', port)
 httpd = HTTPServer(server_address, FallbackRequestHandler)
 print(f"Serving on port {port}...")
 httpd.serve_forever()

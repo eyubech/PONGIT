@@ -114,9 +114,9 @@ function processNextNotification() {
 			console.error('No token found. Cannot establish WebSocket connection.');
 			return { TournamentNotifSocket }//, GameNotifSocket };
 		}
-		const wsUrl1 = `wss://10.11.5.3:443/ws/tournament/notifications/?token=${token}`;
-		// const wsUrl2 = `wss://10.11.5.3:443/ws/game/notifications/?token=${token}`;
-		// const wsUrl3 = `wss://10.11.5.3:443/ws/notification/?token=${token}`;
+		const wsUrl1 = `wss://10.11.4.4:443/ws/tournament/notifications/?token=${token}`;
+		// const wsUrl2 = `wss://10.11.4.4:443/ws/game/notifications/?token=${token}`;
+		// const wsUrl3 = `wss://10.11.4.4:443/ws/notification/?token=${token}`;
 	
 		// if (!TournamentNotifSocket) {
 			if (!TournamentNotifSocket)

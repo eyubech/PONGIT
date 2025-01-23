@@ -77,7 +77,7 @@ class Nav extends HTMLElement {
 	  }
 	  disconnectedCallback() {
 		// let token    =   localStorage.getItem("accessToken");
-    	let URL      =   `wss://10.11.5.3:443/ws/notification/?token=${tokenNotify.notifyToken}`
+    	let URL      =   `wss://10.11.4.4:443/ws/notification/?token=${tokenNotify.notifyToken}`
 		tokenNotify.notifyToken = null
 		closeWebsocket( URL )
 	}

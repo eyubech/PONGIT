@@ -188,8 +188,8 @@ class MatchMakingConsumer( AsyncWebsocketConsumer ):
             print("hello world")
 
 # Error during connect: Invalid input of type: 'NoneType'. Convert to a bytes, string, int or float first.
-# WebSocket REJECT /ws/game/session_15_16/ [10.11.5.3:62445]
-# WebSocket DISCONNECT /ws/game/session_15_16/ [10.11.5.3:62445]
+# WebSocket REJECT /ws/game/session_15_16/ [10.11.4.4:62445]
+# WebSocket DISCONNECT /ws/game/session_15_16/ [10.11.4.4:62445]
 # Error during disconnect: 'GameConsumer' object has no attribute 'roomeName'
 # code is -------> :  1006
 

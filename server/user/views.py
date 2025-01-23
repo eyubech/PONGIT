@@ -290,7 +290,7 @@ def request_password_reset(request):
     user_profile.reset_token_expiry = expiry
     user_profile.save()
 
-    reset_url = f"https://10.11.5.3/resetpassword.html"
+    reset_url = f"https://10.11.4.4/resetpassword.html"
 
     send_mail(
         'Password Reset Request',

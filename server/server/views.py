@@ -471,7 +471,7 @@ def verify_email(request, token):
         
         tokens = get_tokens_for_user(user)
 
-        response = HttpResponseRedirect('http://10.11.5.3:8000/profile')
+        response = HttpResponseRedirect('http://10.11.4.4:8000/profile')
         response.set_cookie('access_token', tokens['access'])
         response.set_cookie('refresh_token', tokens['refresh'])
         return response
